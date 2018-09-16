@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "377557112963",
+    "firebase_url": "https://chan16-6b5e6.firebaseio.com",
+    "project_id": "chan16-6b5e6",
+    "storage_bucket": "chan16-6b5e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377557112963:android:5eb1a958ad0dd7f2",
+        "android_client_info": {
+          "package_name": "com.example.jean.chan16"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377557112963-8qsbklgsap5ddnu48i11c12rhva93vab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jean.chan16",
+            "certificate_hash": "63bac1b9a87dd8ef5dadf29bf3ecbc6a2f4ca5b5"
+          }
+        },
+        {
+          "client_id": "377557112963-ubta2hq0m80ulcqpreurfi4jq4la2ca7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jean.chan16",
+            "certificate_hash": "31fa6b6ee48f0563d1de43bee6a5e59c37cc7309"
+          }
+        },
+        {
+          "client_id": "377557112963-ig8et5lt4iq8tko0ckqaprcn964gib44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATHZAtODvk7NGN9nkXt7kamdCZ9yEY-c4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377557112963-ig8et5lt4iq8tko0ckqaprcn964gib44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

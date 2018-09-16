@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Chan16</string>
+    <string name="login_btn_text">Log In</string>
+    <string name="register_btn_text">Register</string>
+
+    <string name="sign_out">Sign Out</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="email_hint">Your Email</string>
+    <string name="password_hint">Password</string>
+
+    <string name="disconnect">Disconnect Account</string>
+    <string name="google_btn_text">Sign In With Google</string>
+
+    <string name="title_post">Post</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="profile_image_desc">Profile Image</string>
+    <string name="sign_in_avatar_desc">Avatar</string>
+    <string name="btn_save_desc">Button to save post</string>
+    <string name="btn_share_desc">Button to share a post</string>
+    <string name="post_image">Image belonging to a post</string>
+    <string name="btn_pick_image">Pick image for a post</string>
+    <string name="post_text">Write something here...</string>
+    <string name="empty_placeholder">No Posts Yet</string>
+</resources>
