@@ -4,10 +4,8 @@ package com.example.jean.chan16.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
@@ -29,11 +27,10 @@ import com.nguyenhoanglam.imagepicker.model.Config;
 import com.nguyenhoanglam.imagepicker.model.Image;
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class PostFragment extends LocationFragment {
@@ -71,11 +68,9 @@ public class PostFragment extends LocationFragment {
         btnPickImage = view.findViewById(R.id.btnPickImage);
         btnPost = view.findViewById(R.id.btnPost);
 
-        btnPickImage.setOnClickListener((v) -> {
-            openGallery();
-            postImage.setVisibility(View.VISIBLE);
-            divider.setVisibility(View.VISIBLE);
-        });
+        Glide.with(this).load(imageUri).into(postImage);
+
+        btnPickImage.setOnClickListener((v) -> openGallery());
 
         btnPost.setOnClickListener((v) -> {
             if(TextUtils.isEmpty(postText.getText().toString())) {
@@ -101,7 +96,9 @@ public class PostFragment extends LocationFragment {
         user = (getArguments() != null)
                 ? getArguments().getParcelable(ARG_USER)
                 : FirebaseAuth.getInstance().getCurrentUser();
+
         imageUri = getUriToResource(Objects.requireNonNull(getContext()), R.drawable.ic_img_placeholder_yellow_24dp);
+
         if (context instanceof OnCreatePostListener) {
             listener = (OnCreatePostListener) context;
         } else {
@@ -123,7 +120,9 @@ public class PostFragment extends LocationFragment {
             ArrayList<Image> images = data.getParcelableArrayListExtra(Config.EXTRA_IMAGES);
             Image mImg = images.get(0);
             imageUri = Uri.parse(mImg.getPath());
+
             Glide.with(this).load(imageUri).into(postImage);
+
             postImage.setVisibility(View.VISIBLE);
             divider.setVisibility(View.VISIBLE);
         }
@@ -142,7 +141,7 @@ public class PostFragment extends LocationFragment {
     }
 
     private String getCurrentDate() {
-        return new SimpleDateFormat("EEE, MMM d, yyyy").format(new Date());
+        return new SimpleDateFormat("EEE, MMM d, yyyy", Locale.getDefault()).format(new Date());
     }
 
     public  interface OnCreatePostListener {
