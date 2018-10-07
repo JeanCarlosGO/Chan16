@@ -1,6 +1,7 @@
 package com.example.jean.chan16.Adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> im
     private final Context context;
 
     public PostAdapter(Context context, @NonNull List<Post> items) {
+        super();
         this.context = context;
         this.items = items;
     }
@@ -36,19 +38,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> im
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post post = items.get(position);
+        Uri postImageUri = Uri.parse(post.getImageUri());
+        Uri postAuthorProfileImageUri = Uri.parse(post.getAuthorProfileImageUri());
 
         holder.mText.setText(post.getText());
-        holder.mDetails.setText("Posted by " + post.getAuthor().getDisplayName() +
-                                " from " + post.getLocation() +
-                                " on " + post.getDate());
-        if(post.getImageUri() != null) {
-            Glide.with(context).load(post.getImageUri()).into(holder.mImage);
+        holder.mDetails.setText(context.getString(R.string.post_details, post.getAuthorName(), post.getLocation(), post.getDate()));
+
+        if(postImageUri != null) {
+            Glide.with(context).load(postImageUri).into(holder.mImage);
         } else {
             holder.mImage.setVisibility(View.GONE);
         }
 
         Glide.with(context)
-                .load(post.getAuthor().getPhotoUrl())
+                .load(postAuthorProfileImageUri)
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.userImage);
     }

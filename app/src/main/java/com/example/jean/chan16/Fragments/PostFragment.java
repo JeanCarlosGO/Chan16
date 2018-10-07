@@ -79,8 +79,9 @@ public class PostFragment extends LocationFragment {
             }
 
             Post post = new Post(postText.getText().toString(),
-                                imageUri,
-                                user,
+                                imageUri.toString(),
+                                user.getDisplayName(),
+                                user.getPhotoUrl().toString(),
                                 getCurrentDate(),
                                 getAddressName());
 

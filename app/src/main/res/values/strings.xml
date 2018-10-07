@@ -26,4 +26,6 @@
     <string name="btn_pick_image">Pick image for a post</string>
     <string name="post_text">Write something here...</string>
     <string name="empty_placeholder">No Posts Yet</string>
+
+    <string name="post_details">Posted by %1$s from %2$s, on %3$s.</string>
 </resources>

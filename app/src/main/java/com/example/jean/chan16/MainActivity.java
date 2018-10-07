@@ -101,11 +101,14 @@ public class MainActivity extends DataActivity implements
 
     @Override
     public void onCreatePost(Post post) {
+        Uri postImageUri = Uri.parse(post.getImageUri());
+        Uri postAuthorProfileImageUri = Uri.parse(post.getAuthorProfileImageUri());
+
         if(post.getImageUri() != null) {
             StorageReference mStoreRef = mStorage.child(STORAGE_PATH_UPLOADS +
                                                         System.currentTimeMillis() + "." +
-                                                        getFileExtension(post.getImageUri()));
-            mStoreRef.putFile(post.getImageUri()).addOnSuccessListener((task) -> {
+                                                        getFileExtension(postImageUri));
+            mStoreRef.putFile(postImageUri).addOnSuccessListener((task) -> {
                 String postId = mPosts.push().getKey();
                 mPosts.child(postId).setValue(post);
 
